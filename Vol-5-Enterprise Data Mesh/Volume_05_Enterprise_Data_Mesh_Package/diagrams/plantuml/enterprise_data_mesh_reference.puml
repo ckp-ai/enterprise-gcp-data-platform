@@ -1,0 +1,4 @@
+@startuml
+title Enterprise Data Mesh Reference Architecture
+rectangle "Enterprise Data Mesh Reference Architecture" as A
+@enduml

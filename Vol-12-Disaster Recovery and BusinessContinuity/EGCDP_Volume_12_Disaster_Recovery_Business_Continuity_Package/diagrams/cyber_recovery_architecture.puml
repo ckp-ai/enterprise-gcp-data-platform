@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+[Detect and declare] --> [Isolate blast radius]
+[Isolate blast radius] --> [Preserve evidence]
+[Preserve evidence] --> [Select trusted recovery point]
+[Select trusted recovery point] --> [Clean-room recovery project]
+[Clean-room recovery project] --> [Restore data and configuration]
+[Restore data and configuration] --> [Security and reconciliation gates]
+[Security and reconciliation gates] --> [Controlled re-entry]
+@enduml

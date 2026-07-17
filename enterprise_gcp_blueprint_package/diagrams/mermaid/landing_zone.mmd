@@ -1,0 +1,4 @@
+flowchart LR
+      Org --> Platform; Org --> Security; Org --> Data; Org --> NonProd; Org --> Prod;
+      Platform --> NetHost; Security --> SecProj; Security --> LogProj; Data --> DomProj;
+      Interconnect --> NetHost; NetHost --> PSC; PSC --> DomProj; VPCSC --> DomProj [style=dashed];

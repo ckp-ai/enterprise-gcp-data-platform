@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+[Detect and correlate] --> [Declare disaster]
+[Declare disaster] --> [Fence primary]
+[Fence primary] --> [Validate recovery state]
+[Validate recovery state] --> [Activate recovery plane]
+[Activate recovery plane] --> [Redirect consumers]
+[Redirect consumers] --> [Reconcile and monitor]
+@enduml

@@ -1,0 +1,6 @@
+flowchart LR
+      Identity --> IAM --> Workloads;
+      Network --> Perimeter --> Workloads;
+      Keys --> Workloads;
+      SDP --> Workloads [style=dashed];
+      Workloads --> Audit;

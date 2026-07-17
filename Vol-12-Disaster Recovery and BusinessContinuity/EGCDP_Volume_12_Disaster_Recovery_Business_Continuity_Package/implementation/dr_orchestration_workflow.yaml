@@ -1,0 +1,50 @@
+# Purpose: gated recovery orchestration skeleton for Google Cloud Workflows.
+# Invoke only through an approved incident process and a least-privilege recovery service account.
+main:
+  params: [args]
+  steps:
+    - validate:
+        switch:
+          - condition: ${args.incident_id == null || args.change_id == null || args.approved != true}
+            raise: "incident_id, change_id and approved=true are required"
+    - record_start:
+        call: sys.log
+        args:
+          severity: NOTICE
+          text: ${"DR start incident=" + args.incident_id + " change=" + args.change_id}
+    - prechecks:
+        call: http.post
+        args:
+          url: ${args.precheck_url}
+          auth: {type: OIDC}
+          body: ${args}
+        result: precheck
+    - require_prechecks:
+        switch:
+          - condition: ${precheck.body.status != "PASS"}
+            raise: '${"Prechecks failed: " + json.encode_to_string(precheck.body)}'
+    - activate_data_plane:
+        call: http.post
+        args:
+          url: ${args.activation_url}
+          auth: {type: OIDC}
+          body: ${args}
+        result: activation
+    - validate_recovery:
+        call: http.post
+        args:
+          url: ${args.validation_url}
+          auth: {type: OIDC}
+          body:
+            incident_id: ${args.incident_id}
+            activation: ${activation.body}
+        result: validation
+    - require_validation:
+        switch:
+          - condition: ${validation.body.status != "PASS"}
+            raise: '${"Recovery validation failed: " + json.encode_to_string(validation.body)}'
+    - done:
+        return:
+          incident_id: ${args.incident_id}
+          status: "READY_FOR_TRAFFIC_APPROVAL"
+          evidence: ${validation.body}

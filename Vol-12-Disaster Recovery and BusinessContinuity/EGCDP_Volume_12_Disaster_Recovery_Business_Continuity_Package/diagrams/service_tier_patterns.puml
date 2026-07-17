@@ -1,0 +1,6 @@
+@startuml
+[Business impact analysis] --> [Tier 0: RTO <1h / RPO <5m]
+[Business impact analysis] --> [Tier 1: RTO <4h / RPO <15m]
+[Business impact analysis] --> [Tier 2: RTO <24h / RPO <24h]
+[Business impact analysis] --> [Tier 3: approved archive targets]
+@enduml

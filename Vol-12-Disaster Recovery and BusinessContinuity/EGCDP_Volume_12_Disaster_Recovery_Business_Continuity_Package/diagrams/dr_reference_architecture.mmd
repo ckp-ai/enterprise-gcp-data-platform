@@ -1,0 +1,22 @@
+flowchart LR
+  subgraph P[Primary Regional Data Plane]
+    A[Pub/Sub and Datastream] --> B[Dataflow and Composer]
+    B --> C[BigQuery and Cloud Storage]
+    C --> D[Looker and Vertex AI]
+  end
+  subgraph G[Global DR Control Plane]
+    E[Workload registry, BIA, RTO/RPO] --> F[Recovery automation]
+    H[Backups, snapshots, source, IaC and configuration] --> F
+    F --> I[Incident command and business continuity]
+  end
+  subgraph R[Recovery Regional Data Plane]
+    J[Standby ingestion] --> K[Deployable processing]
+    K --> L[Replicated or recoverable data]
+    L --> M[Standby consumption]
+  end
+  C -->|replication and protection| L
+  A -->|retention and recreation| J
+  F --> J
+  F --> K
+  F --> L
+  F --> M

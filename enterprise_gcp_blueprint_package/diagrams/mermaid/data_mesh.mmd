@@ -1,0 +1,5 @@
+flowchart LR
+      Platform --> Healthcare; Platform --> Finance; Platform --> HR; Platform --> Sales; Platform --> Supply;
+      Governance --> Healthcare [style=dashed]; Governance --> Finance [style=dashed]; Governance --> HR [style=dashed];
+      Healthcare --> Marketplace; Finance --> Marketplace; HR --> Marketplace; Sales --> Marketplace; Supply --> Marketplace;
+      Marketplace --> Consumers;

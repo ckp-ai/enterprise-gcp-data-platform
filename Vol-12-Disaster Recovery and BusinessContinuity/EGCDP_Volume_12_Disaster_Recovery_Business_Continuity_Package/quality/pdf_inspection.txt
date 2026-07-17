@@ -1,0 +1,25 @@
+PDF: /mnt/data/EGCDP_Volume_12_Disaster_Recovery_Business_Continuity_Package/documents/Volume_12_Disaster_Recovery_Business_Continuity_Detailed.pdf
+Pages: 33
+Encrypted: False
+Page sizes (pt, rounded):
+  - 612 x 792 (33 page(s))
+Metadata:
+  /Author: python-docx
+  /CreationDate: D:20260712073404Z'
+  /Creator: Writer
+  /Producer: LibreOffice 25.2.3.2 (X86_64) / LibreOffice Community
+Outline items: 73
+Form fields: 0
+Attachments: 0
+Annotations: 0
+
+Fonts (pdffonts, first 25 lines):
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+BAAAAA+NotoSerif-Bold                TrueType          WinAnsi          yes yes yes   3888  0
+CAAAAA+NotoSerif-Regular             TrueType          WinAnsi          yes yes yes   3898  0
+DAAAAA+Carlito-Bold                  TrueType          WinAnsi          yes yes yes   3878  0
+EAAAAA+NotoSerif-Italic              TrueType          WinAnsi          yes yes yes   3893  0
+FAAAAA+OpenSymbol                    TrueType          WinAnsi          yes yes yes   3903  0
+GAAAAA+LiberationMono                TrueType          WinAnsi          yes yes yes   3873  0
+HAAAAA+FreeSerif                     Type 1            Builtin          yes yes yes   3883  0

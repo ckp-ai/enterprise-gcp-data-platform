@@ -1,0 +1,11 @@
+Risk ID,Risk,Likelihood,Impact,Mitigation,Owner
+DR-R01,Replication mistaken for backup,High,High,"Independent logical recovery points, soft delete/versioning, cyber recovery copies and restore tests",BCDR Architecture
+DR-R02,Recovery region lacks quota or capacity,High,High,"Quota reservations, capacity validation and pre-provisioned critical resources",Platform SRE
+DR-R03,Runbook succeeds technically but business data is inconsistent,High,High,"Domain reconciliation rules, checkpoints, lineage and owner sign-off",Data Product Owner
+DR-R04,CMEK or identity dependency unavailable during recovery,High,High,"Key/identity dependency design, break-glass controls and exercises",Security Architecture
+DR-R05,Duplicate processing during replay/failover,Medium,High,"Idempotency keys, deduplication, fencing and reconciliation",Data Engineering
+DR-R06,Malicious backups or contaminated recovery point,High,High,"Immutable evidence, trusted-point selection, malware/integrity validation and clean room",Cyber Recovery Lead
+DR-R07,DNS/client caching delays failover,Medium,Medium,"Appropriate TTL, health checks, client behavior tests and manual routing option",Network SRE
+DR-R08,Managed service feature or location mismatch,Medium,High,"Current capability validation, service-specific tests and documented fallback",Enterprise Architecture
+DR-R09,Recovery automation has excessive privilege,High,High,"Separate recovery identities, JIT approval, dry run and audit logging",Security/SRE
+DR-R10,Failback causes split-brain or data loss,High,High,"Write fencing, authoritative source decision, reverse sync and controlled validation",Incident Commander

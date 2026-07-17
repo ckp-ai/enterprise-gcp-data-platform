@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+rectangle "Primary Regional Data Plane" {
+ [Pub/Sub / Datastream] as pi
+ [Dataflow / Composer] as pp
+ [BigQuery / Cloud Storage] as pd
+ [Looker / Vertex AI] as pc
+ pi --> pp --> pd --> pc
+}
+rectangle "Global DR Control Plane" {
+ [Workload registry / BIA / RTO-RPO] as reg
+ [Backups / snapshots / source / IaC] as ev
+ [Recovery automation] as auto
+ [Incident command / continuity] as cmd
+ reg --> auto
+ ev --> auto --> cmd
+}
+rectangle "Recovery Regional Data Plane" {
+ [Standby ingestion] as ri
+ [Deployable processing] as rp
+ [Replicated / recoverable data] as rd
+ [Standby consumption] as rc
+ ri --> rp --> rd --> rc
+}
+pd --> rd : replication / protection
+pi --> ri : retention / recreation
+auto --> ri
+auto --> rp
+auto --> rd
+auto --> rc
+@enduml

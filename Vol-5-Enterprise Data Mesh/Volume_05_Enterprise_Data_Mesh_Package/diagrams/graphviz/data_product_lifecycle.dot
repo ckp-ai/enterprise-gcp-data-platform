@@ -1,0 +1,4 @@
+digraph G { rankdir=LR; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368", fillcolor="#e8f0fe"]; edge [color="#5f6368", fontsize=9];
+    Idea [label="1. Identify Demand"]; Design [label="2. Define Contract"]; Build [label="3. Build Pipeline"]; Validate [label="4. Validate Quality & Security"]; Certify [label="5. Certify"]; Publish [label="6. Publish to Marketplace"]; Operate [label="7. Operate with SLOs"]; Evolve [label="8. Version / Evolve"]; Deprecate [label="9. Deprecate / Retire"];
+    Idea -> Design -> Build -> Validate -> Certify -> Publish -> Operate -> Evolve -> Operate; Evolve -> Deprecate;
+}

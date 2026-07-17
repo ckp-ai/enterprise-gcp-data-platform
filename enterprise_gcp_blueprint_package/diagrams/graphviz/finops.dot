@@ -1,0 +1,19 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="FinOps Cost Governance Model", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Billing [label="Billing Export
+FOCUS | Detailed Usage"];
+  Labels [label="Labels & Tags
+Domain | Product | Env"];
+  Dashboard [label="FinOps Dashboard
+BigQuery | Looker"];
+  Budgets [label="Budgets & Alerts"];
+  Reservations [label="Reservations
+Slots | Commitments"];
+  Optimization [label="Optimization Backlog"];
+  Owners [label="Product Owners"];
+  Billing -> Dashboard; Labels -> Dashboard; Dashboard -> Budgets; Dashboard -> Reservations; Dashboard -> Optimization; Optimization -> Owners;
+
+}

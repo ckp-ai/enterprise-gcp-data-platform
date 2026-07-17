@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+skinparam rectangle {
+  BackgroundColor #E8F0FE
+  BorderColor #1A73E8
+}
+  CertifiedData --> Prep; Docs --> Prep; Prep --> Embeddings --> Vector;
+  Vector --> Gemini; Gemini --> Agent --> Users;
+  Registry --> Agent [style=dashed]; Monitor --> Agent [style=dashed];
+@enduml

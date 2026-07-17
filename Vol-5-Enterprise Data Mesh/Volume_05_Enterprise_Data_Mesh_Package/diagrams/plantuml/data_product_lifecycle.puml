@@ -1,0 +1,4 @@
+@startuml
+title Data Product Lifecycle
+rectangle "Data Product Lifecycle" as A
+@enduml

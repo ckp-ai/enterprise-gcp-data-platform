@@ -1,0 +1,4 @@
+flowchart LR
+      CertifiedData --> Prep; Docs --> Prep; Prep --> Embeddings --> Vector;
+      Vector --> Gemini; Gemini --> Agent --> Users;
+      Registry --> Agent [style=dashed]; Monitor --> Agent [style=dashed];

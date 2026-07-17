@@ -1,0 +1,6 @@
+flowchart LR
+      Batch --> Composer --> Dataflow --> DQ --> BQ;
+      CDC --> Datastream --> Dataflow --> BQ;
+      Stream --> PubSub --> Dataflow --> BQ;
+      API --> PubSub;
+      BQ --> Dataform --> BQ;

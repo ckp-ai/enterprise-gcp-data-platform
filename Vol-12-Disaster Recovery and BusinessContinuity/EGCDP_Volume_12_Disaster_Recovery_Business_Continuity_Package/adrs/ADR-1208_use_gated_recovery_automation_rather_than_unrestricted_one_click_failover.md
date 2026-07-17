@@ -1,0 +1,28 @@
+# ADR-1208: Use gated recovery automation rather than unrestricted one-click failover
+
+- **ADR ID:** ADR-1208
+- **Decision title:** Use gated recovery automation rather than unrestricted one-click failover
+- **Status:** Approved reference decision; adapt through enterprise governance
+- **Date:** 12 July 2026
+- **Architecture domain:** Disaster Recovery and Business Continuity
+- **Problem:** Recovery requires speed, but automation with broad privilege can amplify incidents or cause split brain.
+- **Context:** Global Fortune 100, petabyte-scale, multi-region Google Cloud data and AI platform with regulated workloads and federated domain ownership.
+- **Decision drivers:** Business impact, RTO, RPO, data integrity, residency, security, recoverability, operability, auditability and cost.
+- **Constraints:** Managed-service recovery characteristics and supported locations vary; legal restrictions can limit recovery regions; quotas and capacity must be validated.
+- **Assumptions:** AMER, EMEA and APAC data planes, group-based IAM, Terraform, CI/CD, centralized logging, service ownership and incident management exist.
+- **Alternatives considered:** Manual-only recovery, Unattended automatic failover for all services, Gated automation by service tier.
+- **Evaluation criteria:** RTO/RPO feasibility, failure independence, data integrity, regulatory fit, complexity, evidence, cost and reversibility.
+- **Decision:** Automate deterministic technical steps through least-privilege identities with incident/change identifiers, approval gates, fencing, validation and evidence capture.
+- **Rationale:** Improves speed and repeatability without removing accountable human decisions.
+- **Benefits:** Consistent recovery design, measurable assurance, clear accountability and controlled residual risk.
+- **Tradeoffs:** Additional replication, storage, standby capacity, automation, exercises and governance effort.
+- **Positive consequences:** Faster recovery, fewer undocumented dependencies, better audit evidence and improved crisis decision-making.
+- **Negative consequences:** Teams must maintain artifacts, execute exercises and fund tier-appropriate recovery controls.
+- **Risks:** Capability mismatch, stale runbooks, insufficient capacity, corrupted recovery points, duplicate processing and failback errors.
+- **Mitigations:** Current documentation validation, automated inventory, quota checks, immutable evidence, reconciliation, fencing and recurring tests.
+- **Implementation implications:** Implement through service-specific patterns, IaC, controlled workflows, monitoring, recovery identities, runbooks and evidence repositories.
+- **Cost implications:** Protection level follows business tier; cost exceptions require documented residual-risk approval.
+- **Security implications:** Recovery privileges, snapshots and backups are highly sensitive; least privilege, segregation and audited use are mandatory.
+- **Operational implications:** Service teams own readiness and execution; BCDR governs tiers, exercises and enterprise crisis coordination.
+- **Review triggers:** Major architecture or region change, new regulation, failed exercise, material incident, service capability change or business criticality change.
+- **Review date:** Quarterly and after every material recovery event or exercise.

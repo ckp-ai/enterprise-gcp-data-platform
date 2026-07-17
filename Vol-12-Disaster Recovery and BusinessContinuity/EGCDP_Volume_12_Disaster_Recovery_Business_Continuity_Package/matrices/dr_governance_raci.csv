@@ -1,0 +1,11 @@
+Activity,BCDR Council,Platform/SRE,Business/Data Product Owner,Security,Data Engineering,Analytics/AI,Crisis Communications
+Maintain BIA and tier,A,C,R,C,C,I,I
+Approve DR design,A,R,C,C,R,C,C
+Operate backups and replication,C,A/R,R,R,C,C,I
+Declare disaster,A/R,C,C,C,C,C,R
+Execute technical recovery,C,A/R,R,R,R,R,I
+Validate data and business service,C,R,A/R,C,C,C,I
+Cyber recovery authorization,C,C,C,A/R,C,C,I
+Crisis communication,A,I,R,C,I,I,R
+Exercise and evidence,A,R,R,R,R,R,C
+Accept residual risk,A,C,R,R,C,C,C

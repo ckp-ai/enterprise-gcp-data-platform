@@ -1,0 +1,5 @@
+digraph G { rankdir=TB; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368", fillcolor="#e8f0fe"]; edge [color="#5f6368"];
+    Contract [label="Data Contract"];
+    Identity [label="Product Identity\nowner, version, SLA"]; Schema [label="Schema\nfields, types, semantics"]; Quality [label="Quality Rules\nthresholds, severity"]; Security [label="Security\nclassification, policy tags"]; Freshness [label="Freshness & Availability\nRPO/RTO/SLO"]; Interfaces [label="Interfaces\nBigQuery, BigLake, API, event"]; Change [label="Change Policy\ncompatibility, deprecation"];
+    Contract -> Identity; Contract -> Schema; Contract -> Quality; Contract -> Security; Contract -> Freshness; Contract -> Interfaces; Contract -> Change;
+}

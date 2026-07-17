@@ -1,0 +1,19 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="DevSecOps and Environment Promotion", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Dev [label="Developer"];
+  Git [label="GitHub"];
+  PR [label="Pull Request"];
+  Tests [label="Tests
+Unit | Policy | Security"];
+  Build [label="Cloud Build / GitHub Actions"];
+  Artifact [label="Artifact Registry"];
+  DevEnv [label="Dev"];
+  TestEnv [label="Test"];
+  Prod [label="Production"];
+  Monitor [label="Post-Deploy Validation"];
+  Dev -> Git -> PR -> Tests -> Build -> Artifact -> DevEnv -> TestEnv -> Prod -> Monitor;
+
+}

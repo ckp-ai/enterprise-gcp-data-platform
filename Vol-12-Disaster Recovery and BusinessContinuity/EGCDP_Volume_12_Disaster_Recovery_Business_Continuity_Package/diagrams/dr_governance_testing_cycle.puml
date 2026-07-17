@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+[Inventory and BIA] --> [Design and implement]
+[Design and implement] --> [Exercise]
+[Exercise] --> [Measure]
+[Measure] --> [Remediate]
+[Remediate] --> [Assure and approve]
+[Assure and approve] --> [Inventory and BIA]
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+[Approved recovery workflow] --> [Authorization gate]
+[Authorization gate] --> [Recover data and metadata]
+[Authorization gate] --> [Recover ingestion]
+[Recover data and metadata] --> [Recover processing]
+[Recover ingestion] --> [Recover processing]
+[Recover processing] --> [Recover consumption]
+[Recover consumption] --> [Validation gate]
+[Validation gate] --> [Release traffic / status]
+[Approved recovery workflow] --> [Evidence bundle]
+[Recover data and metadata] --> [Evidence bundle]
+[Recover ingestion] --> [Evidence bundle]
+[Recover processing] --> [Evidence bundle]
+[Recover consumption] --> [Evidence bundle]
+@enduml

@@ -1,0 +1,23 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Data Engineering Pipeline Patterns", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Batch [label="Batch Files"];
+  CDC [label="Database CDC"];
+  Stream [label="Events"];
+  API [label="APIs/SaaS"];
+  PubSub [label="Pub/Sub"];
+  Dataflow [label="Dataflow/Beam"];
+  Datastream [label="Datastream"];
+  Composer [label="Cloud Composer"];
+  BQ [label="BigQuery"];
+  Dataform [label="Dataform"];
+  DQ [label="Quality Gates"];
+  Batch -> Composer -> Dataflow -> DQ -> BQ;
+  CDC -> Datastream -> Dataflow -> BQ;
+  Stream -> PubSub -> Dataflow -> BQ;
+  API -> PubSub;
+  BQ -> Dataform -> BQ;
+
+}

@@ -1,0 +1,6 @@
+PDF: /mnt/data/EGCDP_Volume_12_Disaster_Recovery_Business_Continuity_Package/documents/Volume_12_Disaster_Recovery_Business_Continuity_Detailed.pdf
+Pages: 33
+Encrypted: False
+Openable (PyMuPDF): True
+Likely scanned: False
+XFA present: False

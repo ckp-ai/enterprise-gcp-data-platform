@@ -1,0 +1,27 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Enterprise AI, GenAI, RAG, and LLMOps Architecture", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  CertifiedData [label="Certified Data Products
+BigQuery | BigLake"];
+  Docs [label="Documents
+Cloud Storage"];
+  Prep [label="Data/Doc Preparation
+Dataflow | Document AI"];
+  Embeddings [label="Embeddings
+Vertex AI"];
+  Vector [label="Vector Search"];
+  Gemini [label="Gemini Models"];
+  Agent [label="Agent Builder
+Tools | Guardrails"];
+  Registry [label="Model Registry
+Prompt Registry"];
+  Monitor [label="AI Monitoring
+Eval | Drift | Safety"];
+  Users [label="Enterprise Users/Apps"];
+  CertifiedData -> Prep; Docs -> Prep; Prep -> Embeddings -> Vector;
+  Vector -> Gemini; Gemini -> Agent -> Users;
+  Registry -> Agent [style=dashed]; Monitor -> Agent [style=dashed];
+
+}

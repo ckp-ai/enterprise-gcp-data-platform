@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EGCDP DR Test Evidence",
+  "type": "object",
+  "required": [
+    "exercise_id",
+    "workload_id",
+    "tier",
+    "start_utc",
+    "end_utc",
+    "rto_target_minutes",
+    "rto_actual_minutes",
+    "rpo_target_minutes",
+    "rpo_actual_minutes",
+    "integrity_status",
+    "approvals",
+    "findings"
+  ],
+  "properties": {
+    "exercise_id": {
+      "type": "string"
+    },
+    "workload_id": {
+      "type": "string"
+    },
+    "tier": {
+      "enum": [
+        "Tier 0",
+        "Tier 1",
+        "Tier 2",
+        "Tier 3"
+      ]
+    },
+    "start_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rto_target_minutes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rto_actual_minutes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rpo_target_minutes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "rpo_actual_minutes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "integrity_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "CONDITIONAL"
+      ]
+    },
+    "security_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "CONDITIONAL"
+      ]
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "identity",
+          "timestamp"
+        ],
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "identity": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "severity",
+          "description",
+          "owner",
+          "due_date"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "Critical",
+              "High",
+              "Medium",
+              "Low"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}

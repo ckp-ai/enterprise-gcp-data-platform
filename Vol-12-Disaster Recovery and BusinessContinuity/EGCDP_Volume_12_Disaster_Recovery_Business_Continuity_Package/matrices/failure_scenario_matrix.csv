@@ -1,0 +1,8 @@
+Scenario,Assumed scope,Detection,Response pattern,Primary runbook
+Regional control-plane or service outage,One primary region unavailable; other regions healthy,"Correlated service errors, provider status, synthetic checks, business impact","Fence writes, validate replica/standby, activate paired region, redirect consumers",Regional DR runbook
+Zone failure,Zonal component unavailable,"Health checks, worker/node failures",Rely on managed multi-zone behavior or reschedule; do not invoke full DR unless blast radius expands,HA runbook
+Dependency failure,"Identity, KMS, network, DNS, source, SaaS or partner dependency unavailable",Cross-service alerts and dependency SLOs,"Use degraded mode, queue/retry, alternate identity/key/network path where approved",Dependency runbook
+Data corruption,"Bad transformation, schema change, operator error or malicious update","Data quality, reconciliation, anomaly and lineage signals","Stop propagation, preserve evidence, identify clean point, restore/reprocess and reconcile",Data recovery runbook
+Cyber incident,"Credential compromise, ransomware, destructive admin or supply-chain event","SCC/SIEM, audit logs, integrity alerts","Isolate, revoke, preserve evidence, clean-room restore, security gate before release",Cyber recovery runbook
+Source failure/failover,Database primary changes or logs unavailable,"Datastream/source alerts, replication lag","Recover source, use stream recovery, backfill gap, deduplicate destination",CDC recovery runbook
+Configuration deletion,"IAM, policy, DNS, pipeline or service configuration removed","Asset drift, CI/CD/audit signals",Reapply approved version from Git/IaC after security review,Configuration recovery runbook

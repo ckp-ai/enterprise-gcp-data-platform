@@ -1,0 +1,5 @@
+Data plane,Pairing principle,Residency constraints,Default recovery pattern
+AMER,"Primary and paired recovery regions selected by latency, service availability, legal entity and risk assessment",No cross-border replication for locality-restricted products without legal approval,Tier 0/1 paired-region pattern; Tier 2 cold rebuild
+EMEA,EU or country-approved region pair; use locality-restricted architecture where required,"GDPR, sector regulation, records and works-council constraints",Prefer in-geography recovery; no global endpoint without residency validation
+APAC,Country/market approved pair with service availability and network reachability,Data localization may restrict cross-country copies,Local pair where available; otherwise risk-accepted cold recovery or alternative service design
+LATAM/Middle East,Map to approved regional plane or local deployment based on law and business criticality,Regional service gaps and cross-border transfer approval,Explicit exception and business-continuity workaround if paired services unavailable

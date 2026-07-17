@@ -1,0 +1,12 @@
+digraph G { rankdir=TB; graph [bgcolor="white",pad="0.2"]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=9.3,color="#5F6368",fillcolor="#F8F9FA"]; edge [color="#5F6368",arrowsize=0.7];
+W [label="Approved recovery workflow\nchange ticket + incident ID",fillcolor="#E8F0FE"];
+G1 [label="Gate 1: authorization\nincident commander, service owner, security",fillcolor="#FEF7E0"];
+D [label="Data recovery\nBigQuery / Cloud Storage / metadata",fillcolor="#E6F4EA"];
+I [label="Ingestion recovery\nPub/Sub / Datastream",fillcolor="#E6F4EA"];
+P [label="Processing recovery\nDataflow / Composer",fillcolor="#E6F4EA"];
+C [label="Consumption recovery\nLooker / Vertex AI",fillcolor="#E6F4EA"];
+G2 [label="Gate 2: validation\nreconciliation, security, performance, RPO",fillcolor="#FEF7E0"];
+R [label="Release traffic and publish status",fillcolor="#FCE8E6"];
+E [label="Evidence bundle\nlogs, commands, outputs, approvals",fillcolor="#E8F0FE"];
+W->G1; G1->D; G1->I; D->P; I->P; P->C; C->G2->R; W->E; D->E; I->E; P->E; C->E; G2->E; R->E;
+}

@@ -1,0 +1,8 @@
+digraph G { rankdir=TB; graph [bgcolor="white",pad="0.2"]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=10,color="#5F6368"]; edge [color="#5F6368",arrowsize=0.7];
+T0 [label="Tier 0\nRTO <1h | RPO <5m\nHot/warm, pre-provisioned capacity, automated failover",fillcolor="#FCE8E6"];
+T1 [label="Tier 1\nRTO <4h | RPO <15m\nWarm standby, replicated data, automated rebuild",fillcolor="#FEF7E0"];
+T2 [label="Tier 2\nRTO <24h | RPO <24h\nPilot light/cold rebuild from protected data",fillcolor="#E8F0FE"];
+T3 [label="Tier 3 / Archive\nBusiness-approved targets\nRestore on demand, lower-cost retention",fillcolor="#E6F4EA"];
+BIA [label="Business impact analysis\nlegal, revenue, safety, operations, reputation",fillcolor="#F8F9FA"];
+BIA->T0; BIA->T1; BIA->T2; BIA->T3;
+}

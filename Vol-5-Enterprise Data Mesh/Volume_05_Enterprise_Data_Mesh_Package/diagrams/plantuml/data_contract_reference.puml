@@ -1,0 +1,4 @@
+@startuml
+title Data Contract Reference Structure
+rectangle "Data Contract Reference Structure" as A
+@enduml

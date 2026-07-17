@@ -1,0 +1,4 @@
+digraph G { rankdir=LR; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368"]; edge [color="#5f6368"];
+    Council [label="Data Governance Council", fillcolor="#fef7e0"]; CDO [label="Chief Data Office", fillcolor="#fef7e0"]; Platform [label="Platform Product Team", fillcolor="#e6f4ea"]; Security [label="Security & Privacy", fillcolor="#fce8e6"]; DomainOwner [label="Domain Data Owner", fillcolor="#e8f0fe"]; Steward [label="Data Steward", fillcolor="#e8f0fe"]; Producer [label="Data Product Team", fillcolor="#e8f0fe"]; Consumer [label="Data Consumer", fillcolor="#f3e8fd"];
+    Council -> CDO; CDO -> Platform; CDO -> DomainOwner; Security -> Platform; Security -> DomainOwner; DomainOwner -> Steward; Steward -> Producer; Platform -> Producer; Producer -> Consumer; Consumer -> Steward [label="feedback / demand"];
+}

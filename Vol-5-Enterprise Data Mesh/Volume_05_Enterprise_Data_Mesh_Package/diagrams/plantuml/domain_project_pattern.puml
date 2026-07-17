@@ -1,0 +1,4 @@
+@startuml
+title Domain Project and Dataset Pattern
+rectangle "Domain Project and Dataset Pattern" as A
+@enduml

@@ -1,0 +1,27 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Enterprise Data Platform - Data Layers", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Landing [label="Landing
+Transient"];
+  Quarantine [label="Quarantine
+Rejected/Invalid"];
+  Raw [label="Raw/Bronze
+Immutable"];
+  Silver [label="Silver
+Standardized"];
+  Gold [label="Gold/Curated
+Data Products"];
+  Semantic [label="Semantic Layer
+Metrics/KPIs"];
+  Archive [label="Archive
+Retention/Legal Hold"];
+  Catalog [label="Knowledge Catalog
+Metadata | Lineage | Glossary"];
+  Landing -> Raw; Landing -> Quarantine;
+  Raw -> Silver -> Gold -> Semantic;
+  Raw -> Archive;
+  Catalog -> Raw [style=dashed]; Catalog -> Gold [style=dashed];
+
+}

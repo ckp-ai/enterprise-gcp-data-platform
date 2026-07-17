@@ -1,0 +1,4 @@
+@startuml
+title Data Mesh IAM and Trust Boundaries
+rectangle "Data Mesh IAM and Trust Boundaries" as A
+@enduml

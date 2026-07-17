@@ -1,0 +1,5 @@
+flowchart LR
+      Landing --> Raw; Landing --> Quarantine;
+      Raw --> Silver --> Gold --> Semantic;
+      Raw --> Archive;
+      Catalog --> Raw [style=dashed]; Catalog --> Gold [style=dashed];

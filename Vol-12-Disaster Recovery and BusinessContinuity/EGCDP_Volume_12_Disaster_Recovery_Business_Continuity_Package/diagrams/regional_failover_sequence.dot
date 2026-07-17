@@ -1,0 +1,10 @@
+digraph G { rankdir=LR; graph [bgcolor="white",pad="0.2"]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=9.5,color="#5F6368",fillcolor="#F8F9FA"]; edge [color="#5F6368",arrowsize=0.7];
+A [label="1 Detect and correlate\nprovider, service and business signals",fillcolor="#E8F0FE"];
+B [label="2 Declare disaster\nincident commander + business owner",fillcolor="#FCE8E6"];
+C [label="3 Fence primary\nstop writes and duplicate processing",fillcolor="#FCE8E6"];
+D [label="4 Validate recovery state\nreplication lag, integrity, keys, dependencies",fillcolor="#FEF7E0"];
+E [label="5 Activate recovery plane\ncapacity, pipelines, endpoints",fillcolor="#E6F4EA"];
+F [label="6 Redirect consumers\nDNS, configuration or application routing",fillcolor="#E8F0FE"];
+G [label="7 Reconcile and monitor\nRPO, backlog, quality, security",fillcolor="#E6F4EA"];
+A->B->C->D->E->F->G;
+}

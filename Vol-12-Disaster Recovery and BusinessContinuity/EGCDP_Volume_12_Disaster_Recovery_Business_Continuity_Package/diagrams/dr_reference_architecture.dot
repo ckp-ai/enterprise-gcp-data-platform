@@ -1,0 +1,29 @@
+digraph G {
+rankdir=LR; graph [bgcolor="white", pad="0.25", nodesep="0.38", ranksep="0.7"];
+node [shape=box, style="rounded,filled", fontname="Arial", fontsize=9.5, color="#5F6368", fillcolor="#F8F9FA"];
+edge [color="#5F6368", arrowsize=0.7, fontname="Arial", fontsize=8];
+subgraph cluster_primary { label="Primary Regional Data Plane"; color="#DADCE0";
+  p_ingest [label="Pub/Sub / Datastream\nregional ingestion", fillcolor="#E8F0FE"];
+  p_proc [label="Dataflow / Composer\nprocessing and orchestration", fillcolor="#E8F0FE"];
+  p_data [label="BigQuery / Cloud Storage\ncurated and replay data", fillcolor="#E6F4EA"];
+  p_consume [label="Looker / Vertex AI\nanalytics and AI", fillcolor="#E6F4EA"];
+  p_ingest->p_proc->p_data->p_consume;
+}
+subgraph cluster_control { label="Global DR Control Plane"; color="#DADCE0";
+  catalog [label="Workload registry, BIA, RTO/RPO\nand dependency graph", fillcolor="#FEF7E0"];
+  evidence [label="Backups, snapshots, source, IaC,\nconfiguration and immutable evidence", fillcolor="#FEF7E0"];
+  orchestrate [label="Workflows / Cloud Build\nvalidated recovery automation", fillcolor="#FEF7E0"];
+  comms [label="Incident command, crisis communication\nand business continuity", fillcolor="#FCE8E6"];
+  catalog->orchestrate; evidence->orchestrate->comms;
+}
+subgraph cluster_recovery { label="Recovery Regional Data Plane"; color="#DADCE0";
+  r_ingest [label="Standby topics, stream configs\nand source connectivity", fillcolor="#E8F0FE"];
+  r_proc [label="Deployable Dataflow templates\nand Composer environment", fillcolor="#E8F0FE"];
+  r_data [label="BigQuery replica/MDR\nand dual-region or replicated objects", fillcolor="#E6F4EA"];
+  r_consume [label="Standby Looker / AI endpoints\nor controlled degraded mode", fillcolor="#E6F4EA"];
+  r_ingest->r_proc->r_data->r_consume;
+}
+p_data->r_data [label="replicate / protect"];
+p_ingest->r_ingest [label="retain / recreate"];
+evidence->r_proc; orchestrate->r_ingest; orchestrate->r_proc; orchestrate->r_data; orchestrate->r_consume;
+}

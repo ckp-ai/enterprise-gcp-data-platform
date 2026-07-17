@@ -1,0 +1,17 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Industry Reference Implementation Pattern", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Core [label="Core Platform Blueprint"];
+  Healthcare [label="Healthcare
+HIPAA | PHI"];
+  Banking [label="Banking
+PCI | Risk"];
+  Retail [label="Retail
+Customer 360"];
+  Telecom [label="Telecom
+Network Analytics"];
+  Core -> Healthcare; Core -> Banking; Core -> Retail; Core -> Telecom;
+
+}

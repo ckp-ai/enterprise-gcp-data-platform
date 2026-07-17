@@ -1,0 +1,32 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Enterprise Google Cloud Data Platform - Conceptual Reference Architecture", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Sources [label="Enterprise Sources
+SAP | Mainframe | SaaS | APIs | Kafka"];
+  Ingestion [label="Ingestion Plane
+Datastream | Pub/Sub | Dataflow | Transfers"];
+  Lakehouse [label="Lakehouse Storage
+Cloud Storage | BigLake | BigQuery"];
+  Processing [label="Processing Plane
+Dataflow | Dataproc | Dataform | Composer"];
+  Governance [label="Governance Plane
+Knowledge Catalog | Lineage | DQ | Contracts"];
+  Security [label="Security Plane
+IAM | KMS | VPC SC | SDP | SCC"];
+  Consumption [label="Consumption Plane
+Looker | SQL | APIs | Analytics Hub"];
+  AI [label="AI Platform
+Vertex AI | Gemini | RAG | Vector Search"];
+  Ops [label="Operations
+Monitoring | Logging | SRE | FinOps"];
+  Sources -> Ingestion -> Lakehouse -> Processing -> Consumption;
+  Lakehouse -> AI;
+  Governance -> Lakehouse [style=dashed, label="governs"];
+  Security -> Ingestion [style=dashed, label="protects"];
+  Security -> Lakehouse [style=dashed];
+  Ops -> Ingestion [style=dashed, label="observes"];
+  Ops -> Processing [style=dashed];
+
+}

@@ -1,0 +1,4 @@
+@startuml
+title Federated Governance Operating Model
+rectangle "Federated Governance Operating Model" as A
+@enduml

@@ -1,0 +1,9 @@
+digraph G { rankdir=LR; graph [bgcolor="white",pad="0.2"]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=9.5,color="#5F6368",fillcolor="#F8F9FA"]; edge [color="#5F6368",arrowsize=0.7];
+A [label="Inventory and BIA\nowners, tiers, dependencies",fillcolor="#E8F0FE"];
+B [label="Design and implement\npatterns, automation, runbooks",fillcolor="#E6F4EA"];
+C [label="Exercise\ntabletop, component, failover, cyber",fillcolor="#FEF7E0"];
+D [label="Measure\nRTO, RPO, integrity, evidence, people",fillcolor="#FEF7E0"];
+E [label="Remediate\nfindings, exceptions, investments",fillcolor="#FCE8E6"];
+F [label="Assure and approve\nBCDR council and risk acceptance",fillcolor="#E8F0FE"];
+A->B->C->D->E->F->A;
+}

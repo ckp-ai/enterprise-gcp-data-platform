@@ -1,0 +1,5 @@
+digraph G { rankdir=LR; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368", fillcolor="#e8f0fe"]; edge [color="#5f6368"];
+    Search [label="Discover in Knowledge Catalog / Marketplace"]; Request [label="Request Access"]; Classify [label="Evaluate Classification & Purpose"]; Approve [label="Owner + Security Approval"]; Grant [label="Grant IAM / Authorized View / Subscriber Access"]; Audit [label="Log & Monitor Usage"]; Review [label="Periodic Recertification"];
+    Deny [label="Deny / Remediate", fillcolor="#fce8e6"];
+    Search -> Request -> Classify; Classify -> Approve [label="eligible"]; Classify -> Deny [label="not eligible"]; Approve -> Grant -> Audit -> Review -> Grant;
+}

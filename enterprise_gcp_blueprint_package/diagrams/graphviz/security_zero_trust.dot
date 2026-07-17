@@ -1,0 +1,26 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Security and Zero Trust Control Plane", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Identity [label="Identity
+Cloud Identity | Federation"];
+  IAM [label="IAM
+Groups | Roles | SA"];
+  Network [label="Network Controls
+Shared VPC | PSC | Firewall"];
+  Perimeter [label="Data Perimeter
+VPC Service Controls"];
+  Keys [label="Cloud KMS
+CMEK | Rotation"];
+  SDP [label="Sensitive Data Protection"];
+  Audit [label="Audit Logs
+SCC | SIEM"];
+  Workloads [label="Data & AI Workloads"];
+  Identity -> IAM -> Workloads;
+  Network -> Perimeter -> Workloads;
+  Keys -> Workloads;
+  SDP -> Workloads [style=dashed];
+  Workloads -> Audit;
+
+}

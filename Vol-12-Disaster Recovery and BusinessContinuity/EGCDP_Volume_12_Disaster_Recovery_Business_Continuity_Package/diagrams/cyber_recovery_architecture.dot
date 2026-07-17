@@ -1,0 +1,11 @@
+digraph G { rankdir=LR; graph [bgcolor="white",pad="0.2"]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=9.5,color="#5F6368",fillcolor="#F8F9FA"]; edge [color="#5F6368",arrowsize=0.7];
+D [label="Detection and declaration\nSCC / SIEM / incident command",fillcolor="#FCE8E6"];
+I [label="Isolate blast radius\ncredentials, networks, service perimeters",fillcolor="#FCE8E6"];
+P [label="Preserve evidence\nlogs, snapshots, hashes, chain of custody",fillcolor="#FEF7E0"];
+V [label="Select trusted recovery point\nmalware and integrity validation",fillcolor="#FEF7E0"];
+C [label="Clean-room recovery project\nseparate identities and keys",fillcolor="#E8F0FE"];
+R [label="Restore data and configuration\nIaC, source, backups, snapshots",fillcolor="#E6F4EA"];
+A [label="Assure before release\nsecurity scans, reconciliation, approvals",fillcolor="#E6F4EA"];
+M [label="Controlled re-entry\nDNS/traffic, heightened monitoring",fillcolor="#E8F0FE"];
+D->I->P->V->C->R->A->M;
+}

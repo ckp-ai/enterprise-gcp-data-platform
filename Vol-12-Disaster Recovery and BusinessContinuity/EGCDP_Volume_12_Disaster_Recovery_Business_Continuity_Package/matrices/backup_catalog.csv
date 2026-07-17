@@ -1,0 +1,10 @@
+Asset,Mechanism,Frequency,Location,Retention,Owner
+BigQuery curated Tier 0,Replication/MDR plus periodic snapshots for selected high-value tables,Continuous + daily snapshots,Paired allowed region,RPO target + retention policy,Data product owner
+Cloud Storage raw/replay,Dual-region or replicated bucket; soft delete; optional versioning; retention/legal hold,Continuous + policy based,Residency-approved geography,Class-based retention,Storage platform
+Pub/Sub replay,Topic/subscription retention and pre-change snapshot,Continuous + before high-risk changes,Regional service,Within configured retention window,Streaming platform
+Composer,Scheduled environment snapshot,At least every 15 minutes for Tier 1 or evidence-based cadence,Cross-region-redundant bucket,30-90 days,Orchestration platform
+Looker,Managed backup plus LookML in Git; content export where required,Daily + before change,Per product support and approved recovery location,Policy-defined,Analytics platform
+Vertex AI,"Model artifacts, containers, pipeline source, prompt/config versions and evaluation evidence",Every release,Artifact Registry/Cloud Storage/Git in approved region,Release retention,AI platform
+Metadata and glossary,Definitions/configuration as code and periodic inventory/export where supported,Every change + daily inventory,Central protected repository,Policy-defined,Governance platform
+Terraform state,"State versions, soft delete/versioning and controlled export",Every apply,Protected state bucket + approved recovery copy,Minimum 90 days,Cloud platform
+Source and CI/CD,"Git provider redundancy/export, immutable artifacts and build provenance",Every commit/release,Enterprise source and artifact platforms,Policy-defined,DevSecOps

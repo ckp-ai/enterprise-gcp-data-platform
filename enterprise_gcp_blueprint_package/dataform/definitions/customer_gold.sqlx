@@ -1,0 +1,18 @@
+config {
+  type: "incremental",
+  schema: "customer_gold",
+  name: "customer_360",
+  uniqueKey: ["customer_id"],
+  bigquery: { partitionBy: "DATE(updated_ts)", clusterBy: ["customer_segment", "country"] },
+  assertions: { nonNull: ["customer_id"], uniqueKey: ["customer_id"] }
+}
+SELECT
+  customer_id,
+  ANY_VALUE(customer_name) AS customer_name,
+  ANY_VALUE(country) AS country,
+  ANY_VALUE(customer_segment) AS customer_segment,
+  MAX(event_ts) AS updated_ts,
+  COUNT(*) AS interaction_count
+FROM ${ref("customer_silver", "events")}
+${when(incremental(), "WHERE event_ts > (SELECT IFNULL(MAX(updated_ts), TIMESTAMP('1970-01-01')) FROM " + self() + ")")}
+GROUP BY customer_id

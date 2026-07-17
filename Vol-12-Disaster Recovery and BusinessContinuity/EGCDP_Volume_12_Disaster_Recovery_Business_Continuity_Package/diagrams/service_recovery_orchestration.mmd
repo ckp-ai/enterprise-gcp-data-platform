@@ -1,0 +1,16 @@
+flowchart TB
+A[Approved recovery workflow] --> B{Authorization gate}
+B --> C[Recover data and metadata]
+B --> D[Recover ingestion]
+C --> E[Recover processing]
+D --> E
+E --> F[Recover analytics and AI consumption]
+F --> G{Validation gate}
+G --> H[Release traffic and publish status]
+A --> I[Evidence bundle]
+C --> I
+D --> I
+E --> I
+F --> I
+G --> I
+H --> I

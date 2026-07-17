@@ -1,0 +1,9 @@
+digraph G { rankdir=LR; graph [fontname="Arial", bgcolor="white", pad="0.2", nodesep="0.45", ranksep="0.65"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368", fillcolor="#e8f0fe"]; edge [fontname="Arial", fontsize=9, color="#5f6368"];
+    subgraph cluster_domains { label="Business Domains"; color="#1a73e8"; style="rounded"; Healthcare; Finance; HR; Sales; Marketing; SupplyChain [label="Supply Chain"]; }
+    subgraph cluster_platform { label="Self-Service Data Platform"; color="#34a853"; style="rounded"; ProjectFactory [label="Domain Project Factory"]; Ingestion [label="Ingestion Patterns"]; Storage [label="Cloud Storage / BigLake / BigQuery"]; Dataform [label="Transformation Standards"]; Observability [label="SLO / Quality / Cost Telemetry"]; }
+    subgraph cluster_gov { label="Federated Computational Governance"; color="#fbbc04"; style="rounded"; Catalog [label="Knowledge Catalog"]; Policy [label="Policy Tags / IAM / Masking"]; Quality [label="Data Quality Scans"]; Contracts [label="Data Contracts"]; Marketplace [label="Analytics Hub Marketplace"]; }
+    Consumers [label="Consumers: BI, AI, Apps, Partners", fillcolor="#fce8e6"];
+    Healthcare -> ProjectFactory; Finance -> ProjectFactory; HR -> ProjectFactory; Sales -> ProjectFactory; Marketing -> ProjectFactory; SupplyChain -> ProjectFactory;
+    ProjectFactory -> Ingestion -> Storage -> Dataform -> Observability;
+    Storage -> Catalog; Dataform -> Catalog; Catalog -> Marketplace; Policy -> Storage; Contracts -> Dataform; Quality -> Observability; Marketplace -> Consumers; Storage -> Consumers;
+}

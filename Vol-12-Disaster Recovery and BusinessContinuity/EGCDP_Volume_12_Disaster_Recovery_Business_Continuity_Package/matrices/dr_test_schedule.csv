@@ -1,0 +1,8 @@
+Exercise,Scope,Minimum cadence,Participants,Pass criteria
+Runbook walkthrough,Tier 0/1,Quarterly,"Owner, SRE, security","Steps current, contacts valid, dependencies confirmed"
+Backup restore sample,All protected services,Quarterly,Service team,"Restore succeeds, integrity verified, evidence retained"
+Tabletop exercise,Tier 0/1 business service,Semiannual,"Business, technology, security, communications",Decision rights and communications work within target
+Component failover,Tier 0/1,Semiannual,Service team/SRE,Component RTO/RPO and rollback proven
+Regional failover exercise,Tier 0; selected Tier 1,Annual or after major change,BCDR council and service owners,End-to-end service restored and reconciled within target
+Cyber recovery exercise,Regulated/Tier 0/1,Annual,"Security, BCDR, platform, legal",Clean-room restore and security approval proven
+Failback exercise,After failover design change or annual,Annual,Service team/SRE,"No split brain, data reconciled, primary restored safely"

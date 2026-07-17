@@ -1,0 +1,7 @@
+digraph G { rankdir=LR; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=rect, style="rounded,filled", fontname="Arial", fontsize=10, color="#5f6368"]; edge [color="#5f6368"];
+    subgraph cluster_domain { label="Domain Project"; color="#1a73e8"; ProducerSA [label="producer service account", fillcolor="#e8f0fe"]; ProductDS [label="product dataset", fillcolor="#e8f0fe"]; StewardGroup [label="steward group", fillcolor="#e8f0fe"]; }
+    subgraph cluster_market { label="Marketplace / Sharing Project"; color="#34a853"; Listing [label="Analytics Hub listing", fillcolor="#e6f4ea"]; AuthView [label="authorized view", fillcolor="#e6f4ea"]; }
+    subgraph cluster_cons { label="Consumer Project"; color="#fbbc04"; ConsumerGroup [label="consumer group", fillcolor="#fef7e0"]; ConsumerSA [label="workload service account", fillcolor="#fef7e0"]; }
+    Sec [label="policy tags, row access, masking", fillcolor="#fce8e6"];
+    ProducerSA -> ProductDS; StewardGroup -> ProductDS; ProductDS -> AuthView; ProductDS -> Listing; Sec -> ProductDS; Listing -> ConsumerGroup; AuthView -> ConsumerSA;
+}

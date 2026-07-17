@@ -1,0 +1,30 @@
+config {
+  type: "incremental",
+  schema: "customer_products",
+  name: "customer_360_v1",
+  tags: ["customer", "gold", "certified"],
+  bigquery: {
+    partitionBy: "DATE(profile_effective_ts)",
+    clusterBy: ["region_code", "lifecycle_status", "primary_segment"]
+  },
+  assertions: {
+    nonNull: ["customer_id", "profile_effective_ts"],
+    uniqueKey: ["customer_id", "profile_effective_ts"]
+  }
+}
+
+SELECT
+  c.customer_id,
+  h.household_id,
+  c.region_code,
+  c.lifecycle_status,
+  s.primary_segment,
+  c.consent_marketing,
+  CURRENT_TIMESTAMP() AS profile_effective_ts,
+  SAFE_CAST(q.score AS NUMERIC) AS data_quality_score,
+  CURRENT_TIMESTAMP() AS record_created_ts
+FROM ${ref("customer_silver", "customer_profile_current")} c
+LEFT JOIN ${ref("customer_silver", "household_bridge")} h USING(customer_id)
+LEFT JOIN ${ref("marketing_silver", "customer_segment_current")} s USING(customer_id)
+LEFT JOIN ${ref("customer_quality", "customer_quality_score_current")} q USING(customer_id)
+${when(incremental(), `WHERE c.updated_ts > (SELECT IFNULL(MAX(profile_effective_ts), TIMESTAMP('1970-01-01')) FROM ${self()})`)}

@@ -1,0 +1,10 @@
+Workload ID,Business service,Tier,RTO,RPO,Recovery pattern,Owner
+DR-PLAT-001,Enterprise data access and curated Tier 0 products,Tier 0,<1 hour,<5 minutes,Warm/hot recovery plane; BigQuery MDR or proven replica pattern; pre-provisioned critical capacity,Business owner + Data Platform SRE
+DR-ING-001,Regulated transaction CDC and event ingestion,Tier 0,<1 hour,<5 minutes,Source HA plus retained/replayable events; pre-created secondary connectivity and templates,Domain owner + Integration SRE
+DR-ANL-001,Executive and operational analytics,Tier 1,<4 hours,<15 minutes,"Replicated datasets, deployable Looker configuration, warm capacity",Analytics Platform
+DR-AI-001,Customer-facing AI inference grounded on enterprise data,Tier 1,<4 hours,<15 minutes for governed state,"Region-paired deployment config, protected model artifacts, degraded-mode routing",AI Platform
+DR-ORCH-001,Cloud Composer orchestration for critical pipelines,Tier 1,<4 hours,<15 minutes metadata target where feasible,Scheduled snapshots in cross-region-redundant bucket; pre-tested environment rebuild,Data Engineering Platform
+DR-GOV-001,"Metadata, glossary, lineage and access-policy evidence",Tier 1,<4 hours,<15 minutes for policy/configuration changes,"Configuration as code, exports where supported, authoritative source registry",Data Governance
+DR-BI-001,Standard BI and departmental reporting,Tier 2,<24 hours,<24 hours,Cold/warm rebuild from source control and replicated curated data,Domain Analytics
+DR-DEV-001,Non-production engineering environments,Tier 2,<24 hours,<24 hours,Recreate from IaC and source; no dedicated hot standby,Platform Engineering
+DR-ARC-001,Historical archive and legal records,Tier 3,"Business-approved, normally 72 hours",Policy-defined,"Protected multi/dual-region objects, retention lock where required, restore on demand",Records Management

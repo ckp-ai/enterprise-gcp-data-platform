@@ -1,0 +1,25 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", fontname="Arial", labelloc="t", label="Enterprise Data Mesh Operating Model", fontsize=20];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F0FE", color="#1A73E8", fontname="Arial", fontsize=11];
+  edge [color="#5F6368", fontname="Arial", fontsize=9];
+
+  Platform [label="Self-Service Platform Team"];
+  Governance [label="Federated Governance Council"];
+  Marketplace [label="Data Marketplace
+Analytics Hub | Catalog"];
+  Healthcare [label="Healthcare Domain
+Data Products"];
+  Finance [label="Finance Domain
+Data Products"];
+  HR [label="HR Domain
+Data Products"];
+  Sales [label="Sales & Marketing Domains"];
+  Supply [label="Supply Chain Domain"];
+  Consumers [label="Consumers
+BI | Apps | AI | Partners"];
+  Platform -> Healthcare; Platform -> Finance; Platform -> HR; Platform -> Sales; Platform -> Supply;
+  Governance -> Healthcare [style=dashed]; Governance -> Finance [style=dashed]; Governance -> HR [style=dashed];
+  Healthcare -> Marketplace; Finance -> Marketplace; HR -> Marketplace; Sales -> Marketplace; Supply -> Marketplace;
+  Marketplace -> Consumers;
+
+}

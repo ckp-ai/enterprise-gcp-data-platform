@@ -1,0 +1,5 @@
+digraph G { rankdir=TB; graph [fontname="Arial", bgcolor="white", pad="0.2"]; node [shape=folder, style="filled", fontname="Arial", fontsize=10, color="#5f6368", fillcolor="#e8f0fe"]; edge [color="#5f6368"];
+    Org [label="Organization"]; DataFolder [label="folders/data-domains"]; Domain [label="folder/customer-domain"]; Dev [label="prj-cust-dev"]; Test [label="prj-cust-test"]; Prod [label="prj-cust-prod"]; Restricted [label="prj-cust-restricted-prod"]; Marketplace [label="prj-data-marketplace"]; 
+    node [shape=rect, style="rounded,filled", fillcolor="#e6f4ea"]; Raw [label="customer_raw"]; Silver [label="customer_silver"]; Gold [label="customer_gold"]; Products [label="customer_products"]; Audit [label="customer_audit"]; Sec [label="policy tags / row filters / masking"];
+    Org -> DataFolder -> Domain; Domain -> Dev; Domain -> Test; Domain -> Prod; Domain -> Restricted; Domain -> Marketplace; Prod -> Raw; Prod -> Silver; Prod -> Gold; Prod -> Products; Prod -> Audit; Restricted -> Sec; Marketplace -> Products;
+}
